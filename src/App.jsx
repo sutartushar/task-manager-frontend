@@ -11,7 +11,7 @@ function App() {
   //fetch all task
   const fetchTasks = async () => {
     try {
-      let response = await axios.get("http://localhost:8000/task/alltask");
+      let response = await axios.get("https://task-manager-backend4-kpg4.onrender.com/task/alltask");
       setTasks(response.data);
     } catch (error) {
       console.log("error -> ", error);
@@ -22,7 +22,7 @@ function App() {
   const handleAddTask = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/task/addtask", {
+      await axios.post("https://task-manager-backend4-kpg4.onrender.com/task/addtask", {
         title,
         description,
         completed: false,
@@ -38,7 +38,7 @@ function App() {
   //handleToggleCompletion
   const handleToggleCompletion = async (id, completed) => {
     try {
-      await axios.put(`http://localhost:8000/task/updatetask/${id}`, {
+      await axios.put(`https://task-manager-backend4-kpg4.onrender.com/task/updatetask/${id}`, {
         completed: !completed,
       });
       fetchTasks();
@@ -50,7 +50,7 @@ function App() {
   //delete task
   const handleDeleteTask = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/task/deletetask/${id}`);
+      await axios.delete(`https://task-manager-backend4-kpg4.onrender.com/task/deletetask/${id}`);
       fetchTasks();
     } catch (error) {
       console.log("Error deleting task:", error);
